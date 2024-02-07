@@ -14,7 +14,7 @@ def callback(msg):
     for covariance in msg.pose.covariance:
         # rospy.loginfo(rospy.get_caller_id() + "I heard %f", covariance)
         if abs(covariance) > float(cov_trhesh):
-            rospy.loginfo("Covariance Threshold exceeded! STOP Robot.")
+            rospy.logwarn("Covariance Threshold exceeded! You should STOP the Robot.")
             health_status.data = False
             break
 
